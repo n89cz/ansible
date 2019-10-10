@@ -1,10 +1,24 @@
 ---
-  # Updates apt packages
+  # Updates apt packages and do some cleaning
 
 - hosts: rpi
   gather_facts: no
   become: yes
+
   tasks:
+
     - name: update apt packages
       apt:
         cache_valid_time: 3600
+
+    - name: autoremove unused packages
+      apt:
+       purge: yes
+
+    - name: remove no longer required dependencies
+      apt:
+       autoremove: yes
+
+    - name: remove useless packages from cache
+      apt:
+        autoclean: yes
