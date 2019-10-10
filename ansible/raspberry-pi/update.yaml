@@ -7,8 +7,9 @@
 
   tasks:
 
-    - name: update apt packages
+    - name: update all packages to latest version
       apt:
+        upgrade: dist
         cache_valid_time: 3600
 
     - name: autoremove unused packages
