@@ -1,0 +1,9 @@
+# Ansible hosts file for Raspberry pi
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=pi
+ansible_password=raspberry
+
+[rpi]
+rpi1 ansible_host=192.168.1.6

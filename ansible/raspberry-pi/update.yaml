@@ -1,0 +1,10 @@
+---
+  # Updates apt packages
+
+- hosts: rpi
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: update apt packages
+      apt:
+        cache_valid_time: 3600
